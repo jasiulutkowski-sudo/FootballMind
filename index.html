@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="theme-color" content="#07110d">
+
+<title>FootballMind</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{margin:0;background:#07110d;color:#f4f7f5;font-family:Arial,sans-serif}
+
+header{padding:24px 18px;background:#10231a;border-bottom:1px solid #244c35}
+
+.logo{font-size:27px;font-weight:900;letter-spacing:-1px}
+
+.logo span{color:#63ef91}
+
+header p{color:#a5b8aa;margin-bottom:0}
+
+nav{display:flex;gap:8px;padding:12px;overflow-x:auto;background:#0b1811;position:sticky;top:0}
+
+nav button{border:0;border-radius:10px;padding:12px 14px;background:#1a3022;color:white;white-space:nowrap;font-weight:bold}
+
+nav button.active{background:#65ed91;color:#07110d}
+
+main{padding:16px;max-width:850px;margin:auto}
+
+h2{font-size:23px}
+
+.card{background:#112219;border:1px solid #294333;border-radius:16px;padding:17px;margin:12px 0}
+
+.muted{color:#9fb3a4;font-size:13px}
+
+.score{font-size:25px;font-weight:900}
+
+.tag{color:#69ee96;font-size:12px;font-weight:bold}
+
+.team{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0}
+
+.team b{font-size:16px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.stat{background:#1a3022;border-radius:12px;padding:14px}
+
+.stat strong{display:block;font-size:23px;color:#6bee96}
+
+select,input{width:100%;padding:13px;border:1px solid #355641;background:#0a160f;color:white;border-radius:10px;margin:7px 0}
+
+.action{width:100%;padding:14px;background:#65ed91;color:#07110d;border:0;border-radius:11px;font-weight:900;font-size:15px;margin-top:8px}
+
+footer{text-align:center;color:#789080;padding:25px;font-size:12px}
+
+.hidden{display:none}
+
+table{width:100%;border-collapse:collapse;font-size:13px}
+
+td,th{padding:10px 5px;text-align:left;border-bottom:1px solid #294333}
+
+th{color:#72ee99}
+
+@media(max-width:420px){.grid{grid-template-columns:1fr 1fr}main{padding:12px}.card{padding:14px}}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">⚽ Football<span>Mind</span></div>
+
+  <p>Piłka nożna. Dane. Analiza. Emocje.</p>
+
+</header>
+
+<nav>
+
+  <button class="active" onclick="show('wyniki',this)">Wyniki</button>
+
+  <button onclick="show('terminarz',this)">Terminarz</button>
+
+  <button onclick="show('tabela',this)">Tabele</button>
+
+  <button onclick="show('analiza',this)">Analiza AI</button>
+
+  <button onclick="show('transfery',this)">Transfery</button>
+
+</nav>
+
+<main>
+
+<section id="wyniki">
+
+<h2>📊 Centrum meczowe</h2>
+
+<div class="grid">
+
+<div class="stat"><strong>⚽</strong>Wyniki spotkań</div>
+
+<div class="stat"><strong>🏆</strong>Tabele ligowe</div>
+
+<div class="stat"><strong>🧠</strong>Analiza meczów</div>
+
+<div class="stat"><strong>🔄</strong>Transfery</div>
+
+</div>
+
+<div class="card">
+
+<span class="tag">DEMO • PRZYKŁADOWE DANE</span>
+
+<div class="team"><b>Real Madryt</b><span class="score">2 : 1</span><b>Barcelona</b></div>
+
+<p class="muted">Przykładowy wynik — nie jest wynikiem na żywo.</p>
+
+</div>
+
+<div class="card">
+
+<span class="tag">TWOJA PIŁKARSKA BAZA</span>
+
+<h3>Wszystko w jednym miejscu</h3>
+
+<p>Śledź mecze, sprawdzaj tabele i przygotowuj własne analizy piłkarskie.</p>
+
+</div>
+
+</section>
+
+<section id="terminarz" class="hidden">
+
+<h2>🗓️ Terminarz</h2>
+
+<div class="card">
+
+<h3>Nadchodzące mecze</h3>
+
+<p>Po podłączeniu źródła danych pojawią się tutaj aktualne terminy, godziny i pary drużyn.</p>
+
+<p class="muted">Na razie terminarz nie pobiera danych na żywo.</p>
+
+</div>
+
+</section>
+
+<section id="tabela" class="hidden">
+
+<h2>🏆 Tabela ligowa</h2>
+
+<div class="card">
+
+<span class="tag">DEMO • DANE PRZYKŁADOWE</span>
+
+<table>
+
+<thead><tr><th>#</th><th>Drużyna</th><th>M</th><th>PKT</th></tr></thead>
+
+<tbody>
+
+<tr><td>1</td><td>Real Madryt</td><td>10</td><td>25</td></tr>
+
+<tr><td>2</td><td>Barcelona</td><td>10</td><td>24</td></tr>
+
+<tr><td>3</td><td>Atlético</td><td>10</td><td>20</td></tr>
+
+<tr><td>4</td><td>Sevilla</td><td>10</td><td>17</td></tr>
+
+</tbody>
+
+</table>
+
+<p class="muted">To dane demonstracyjne, a nie aktualna tabela ligi.</p>
+
+</div>
+
+</section>
+
+<section id="analiza" class="hidden">
+
+<h2>🧠 FootballMind AI</h2>
+
+<div class="card">
+
+<p>Wpisz dwie drużyny, aby przygotować szablon analizy meczu.</p>
+
+<label for="home">Gospodarze</label>
+
+<input id="home" placeholder="Np. Arsenal">
+
+<label for="away">Goście</label>
+
+<input id="away" placeholder="Np. Liverpool">
+
+<label for="league">Rozgrywki</label>
+
+<select id="league">
+
+<option>Premier League</option>
+
+<option>La Liga</option>
+
+<option>Ekstraklasa</option>
+
+<option>Liga Mistrzów</option>
+
+<option>Inne</option>
+
+</select>
+
+<button class="action" onclick="analyse()">Przygotuj analizę</button>
+
+<div id="analysisResult"></div>
+
+</div>
+
+</section>
+
+<section id="transfery" class="hidden">
+
+<h2>🔄 Rynek transferowy</h2>
+
+<div class="card">
+
+<h3>Transfery i plotki</h3>
+
+<p>Docelowo znajdziesz tutaj potwierdzone transfery, doniesienia medialne i informacje o zawodnikach.</p>
+
+<p class="muted">Aktualne wiadomości wymagają podłączenia źródła danych.</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>FootballMind © 2026 · Twoja piłkarska strefa</footer>
+
+<script>
+
+function show(id,btn){
+
+document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+
+document.getElementById(id).classList.remove('hidden');
+
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+
+btn.classList.add('active');
+
+}
+
+function analyse(){
+
+const h=document.getElementById('home').value.trim();
+
+const a=document.getElementById('away').value.trim();
+
+const l=document.getElementById('league').value;
+
+const out=document.getElementById('analysisResult');
+
+if(!h||!a){out.innerHTML='<p>Wpisz nazwy obu drużyn.</p>';return;}
+
+out.innerHTML='<div class="card"><span class="tag">SZABLON ANALIZY</span><h3>'+escapeHtml(h)+' – '+escapeHtml(a)+'</h3><p>Rozgrywki: '+escapeHtml(l)+'</p><p>Do rzetelnej analizy potrzebne są aktualne statystyki, forma drużyn, absencje i historia spotkań.</p><p class="muted">Silnik AI i dane meczowe nie są jeszcze podłączone. Ten ekran nie generuje prawdziwej prognozy.</p></div>';
+
+}
+
+function escapeHtml(s){
+
+return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+}
+
+</script>
+
+</body>
+
+</html>
